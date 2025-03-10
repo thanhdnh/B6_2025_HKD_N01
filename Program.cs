@@ -59,6 +59,28 @@ public class LinkedList
             current = current.link;
         }
     }
+    public int Count()
+    {
+        int c = 0;
+        Node current = header; // Node current = header.link;
+        while (current.link != null) //current != null
+        {
+            current = current.link;
+            c++;
+        }
+        return c;
+    }
+    public int Sum(){
+        int sum = 0;
+        Node current = header.link;
+        while (current != null)
+        {
+            sum += int.Parse(current.element.ToString());
+            current = current.link;
+        }
+        return sum;
+    }
+    //Bổ sung thêm phương thức Swap và Sort.
 }
 
 public class Program
@@ -67,13 +89,15 @@ public class Program
     {
         Console.Clear();
         LinkedList list = new LinkedList();
-        list.Insert("First", "Header");
-        list.Insert("Second", "First");
-        list.Insert("Third", "Second");
+        list.Insert("1", "Header");
+        list.Insert("6", "1");
+        list.Insert("4", "6");
         list.Print();
-        Console.WriteLine("===");
-        list.Remove("Second");
-        list.Print();
+        Console.WriteLine("Count={0}", list.Count());
+        Console.WriteLine("Sum={0}", list.Sum());
+        //Console.WriteLine("===");
+        //list.Remove("Second");
+        //list.Print();
         Console.ReadLine();
 
     }
